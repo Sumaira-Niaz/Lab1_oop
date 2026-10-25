@@ -19,6 +19,11 @@ class Course:
         return len(self.marks)
     def __str__(self):
         return f"{self.name}: {len(self.marks)} students, average {self.average():.1f}"
+    def remove_student(self, name: str) -> None:
+        """Remove a student, or raise KeyError if missing."""
+        if name not in self.marks:
+            raise KeyError(f"No student named {name}")
+        del self.marks[name]
 def load_course(filename, course_name):
     course = Course(course_name)
     with open(filename, 'r') as f:

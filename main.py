@@ -36,4 +36,13 @@ for student in students:
     print(f"Total Students: {len(course)}")
     print(f"Average Marks: {course.average():.2f}")
     print(f"Top Student: {course.top_student()}")
+    # --- Test remove_student ---
+c = Course("X")
+c.add_student("Ali", 88)
+c.remove_student("Ali")
+print(len(c))
+try:
+    c.remove_student("Zara")
+except KeyError as e:
+    print("KeyError:", e)
     
